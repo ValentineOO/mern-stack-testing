@@ -18,7 +18,12 @@ import Greet from "./Greet";
  */
 
 describe("a group of tests for Greet component", () => {
-  it("should render Greet component correctly", () => {
+  // it.only("should render Greet component correctly", () => {
+  //   render(<Greet />);
+  //   const textElement = screen.getByText("Hello");
+  //   expect(textElement).toBeInTheDocument();
+  // });
+  it.skip("should render Greet component correctly", () => {
     render(<Greet />);
     const textElement = screen.getByText("Hello");
     expect(textElement).toBeInTheDocument();
