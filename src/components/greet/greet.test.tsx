@@ -1,21 +1,9 @@
-// import { render, screen } from "@testing-library/react";
-// import Greet from "./Greet";
-
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import Greet from "./Greet";
 
-// describe("group tests for greet components", () => {
-//   it("should test if the greet component renders correctly", () => {
-//     render(<Greet />);
-
-//     const textElement = screen.getByText(/hello/i);
-//     expect(textElement).toBeInTheDocument();
-//   });
-// });
-
-/**
- * Greet should render the text hello and if a name is passed into the component it should render hello followed by the name
- */
+afterEach(() => {
+  cleanup();
+});
 
 describe("a group of tests for Greet component", () => {
   // it.only("should render Greet component correctly", () => {
@@ -23,15 +11,40 @@ describe("a group of tests for Greet component", () => {
   //   const textElement = screen.getByText("Hello");
   //   expect(textElement).toBeInTheDocument();
   // });
-  it.skip("should render Greet component correctly", () => {
+
+  // it.skip("should render Greet component correctly", () => {
+  //   render(<Greet />);
+  //   const textElement = screen.getByText("Hello");
+  //   expect(textElement).toBeInTheDocument();
+  // });w
+
+  test("should render Greet component correctly", () => {
     render(<Greet />);
-    const textElement = screen.getByText("Hello");
+    const textElement = screen.getByText(/Hello/);
     expect(textElement).toBeInTheDocument();
   });
 
-  it("should render Greet component with a name", () => {
-    render(<Greet name="Valentine" />);
-    const textElement = screen.getByText("Hello");
-    expect(textElement).toBeInTheDocument();
-  });
+  // describe("Nested", () => {
+  //   test("should render Greet component with a name", () => {
+  //     render(<Greet name="Valentine" />);
+  //     const textElement = screen.getByText("Hello");
+  //     expect(textElement).toBeInTheDocument();
+  //   });
+  // });
+
+  // describe.only("Nested", () => {
+  //   it("should render Greet component with a name", () => {
+  //     render(<Greet name="Valentine" />);
+  //     const textElement = screen.getByText("Hello");
+  //     expect(textElement).toBeInTheDocument();
+  //   });
+  // });
+
+  // describe.skip("Nested", () => {
+  //   it("should render Greet component with a name", () => {
+  //     render(<Greet name="Valentine" />);
+  //     const textElement = screen.getByText("Hello");
+  //     expect(textElement).toBeInTheDocument();
+  //   });
+  // });
 });
